@@ -1,0 +1,31 @@
+/* Definir a fonte Amazon Ember */
+@font-face {
+    font-family: 'Amazon Ember';
+    src: url('/static/fonts/AmazonEmber_W_Rg.woff2') format('woff2'),
+         url('/static/fonts/AmazonEmber_W_Rg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amazon Ember';
+    src: url('/static/fonts/AmazonEmber-Bold.woff2') format('woff2'),
+         url('/static/fonts/AmazonEmber-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Aplicar a fonte ao Jazzmin */
+body, .jazzmin-sidebar, .jazzmin-header, h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea {
+    font-family: 'Amazon Ember', sans-serif !important;
+}
+
+/* Ajustes opcionais para melhorar a aparência */
+.jazzmin-header {
+    font-weight: bold;
+}
+.jazzmin-sidebar .nav-link {
+    font-size: 16px;
+}

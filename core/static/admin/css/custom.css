@@ -1,0 +1,15 @@
+/* static/admin/css/custom.css */
+
+/* Altera o campo 'compra_numero' para ter uma largura aproximada de 15 caracteres */
+.form-row.field-compra_numero input {
+    width: 15ch;
+}
+
+/* Altera o campo 'conta_pagar_numero_documento' para 25 caracteres */
+.form-row.field-conta_pagar_numero_documento input {
+    width: 25ch;
+}
+
+/* Dica: a unidade 'ch' é ótima aqui, pois representa a largura do caractere "0",
+   dando uma aproximação do tamanho baseado em caracteres.
+*/

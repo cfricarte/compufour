@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'core/js/vendaitem_change_form.js' %}"></script>
+    <style>
+        /* Estilo para indicar que o campo está sendo atualizado automaticamente */
+        #id_venda_item_preco {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+{% endblock %}
+
+{% block after_field_sets %}
+    {{ block.super }}
+    <div class="submit-row">
+        <p style="color: #666; font-size: 12px; margin-top: 10px;">
+            💡 <strong>Dica:</strong> Ao selecionar o <strong>Cliente</strong> e o <strong>Produto</strong>, 
+            o preço será preenchido automaticamente com base no convênio cadastrado.
+        </p>
+    </div>
+{% endblock %}

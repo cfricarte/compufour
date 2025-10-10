@@ -1,0 +1,58 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>Confira os valores antes de confirmar o recebimento automatico das contas selecionadas.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="{{ action_name }}">
+    {% for selected in selected_ids %}
+      <input type="hidden" name="{{ action_checkbox_name }}" value="{{ selected }}">
+    {% endfor %}
+    {% if select_across %}
+      <input type="hidden" name="select_across" value="{{ select_across }}">
+    {% endif %}
+    {% if index %}
+      <input type="hidden" name="index" value="{{ index }}">
+    {% endif %}
+
+    <div class="module">
+      <table class="adminlist">
+        <thead>
+          <tr>
+            <th>Documento</th>
+            <th>Cliente</th>
+            <th>Valor total</th>
+            <th>Total recebido</th>
+            <th>Saldo a quitar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in contas %}
+            <tr>
+              <td>{{ item.obj.contas_receber_numero_documento }}</td>
+              <td>{{ item.obj.cliente }}</td>
+              <td>R$ {{ item.valor_total|floatformat:2 }}</td>
+              <td>R$ {{ item.valor_recebido|floatformat:2 }}</td>
+              <td>R$ {{ item.saldo|floatformat:2 }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="2">Totais</th>
+            <th>R$ {{ total_valor|floatformat:2 }}</th>
+            <th>R$ {{ total_recebido|floatformat:2 }}</th>
+            <th>R$ {{ total_saldo|floatformat:2 }}</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="submit-row">
+      <a class="button cancel-button" href="{{ cancel_url }}">Cancelar</a>
+      <button type="submit" name="post" value="yes" class="default">Confirmar recebimento</button>
+    </div>
+  </form>
+{% endblock %}

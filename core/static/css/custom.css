@@ -1,0 +1,18 @@
+:root {
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+}
+
+.navbar-dark {
+    background-color: #003366 !important;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #004080, #00264d);
+}
+
+.sidebar .nav-link.active {
+    background-color: #198754 !important;
+    color: #fff !important;
+    border-radius: 8px;
+}
